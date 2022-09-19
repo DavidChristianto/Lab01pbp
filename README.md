@@ -4,7 +4,7 @@ Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu 
 
 *Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
-https://djangolab0.herokuapp.com/
+https://dashboard.heroku.com/apps/lab01pbp
 
 ## Pendahuluan
 
