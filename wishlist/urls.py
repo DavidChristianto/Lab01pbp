@@ -4,6 +4,10 @@ from wishlist.views import show_xml #customize to the name of the function creat
 from wishlist.views import show_json # adjust the name of the function created
 from wishlist.views import show_json_by_id #customise the name of the function created
 from wishlist.views import show_xml_by_id #customise the name of the function created
+from wishlist.views import register #customize with the name of the function created
+from wishlist.views import login_user #customize with the name of the function created
+from wishlist.views import logout_user #customize with the name of the function created
+
 app_name = 'wishlist'
 
 urlpatterns = [
@@ -12,4 +16,9 @@ urlpatterns = [
     path('json/', show_json, name='show_json'), #customise the name of the function created
     path('json/<int:id>', show_json_by_id, name='show_json_by_id'), #customise the name of the function created
     path('xml/<int:id>', show_xml_by_id, name='show_xml_by_id'), #customise the name of the function created
+    path('register/', register, name='register'), #customize with the name of the function created
+    path('login/', login_user, name='login'), #customize with the name of the function created
+    path('logout/', logout_user, name='logout'), #customize with the name of the function created
+
+
 ]
