@@ -23,6 +23,13 @@ def show_wishlist(request):
     }
     return render(request, "wishlist.html", context)
 
+def show_wishlist_ajax(request):
+    context = {
+        'name': 'David Christianto',
+        'last_login': request.COOKIES['last_login'],
+    }
+    return render(request, "wishlist.html", context)
+
 def show_xml(request):
     data = ItemWishlist.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")

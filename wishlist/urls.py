@@ -19,6 +19,7 @@ urlpatterns = [
     path('register/', register, name='register'), #customize with the name of the function created
     path('login/', login_user, name='login'), #customize with the name of the function created
     path('logout/', logout_user, name='logout'), #customize with the name of the function created
+    path('wishlist_ajax', show_wishlist_ajax, name='show_wishlist_ajax'),
 
 
 ]
