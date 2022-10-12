@@ -1,25 +1,5 @@
 {% extends 'base.html' %}
-{% block meta %}
-
-{{ block.super }}
-<script type="text/javaScript">
-  console.log("test");
-  $(document).ready(() => {
-       const url = "{% url 'wishlist:json' %}";
-       $.get(url, (data) => {
-           data.forEach((item) => {
-               var item_name = item.fields.item_name;
-               var item_price = item.fields.item_name;
-               var item_description = item.fields.descriptions;
-               var html = "<tr><td>" + item_name +
-                          "<tr><td>" + item_price + 
-                          "<tr><td>" + item_description + "</td>";
-       $("tbody").append(html);
-           })
-       });
-   });
- </script>
-{% endblock meta %}
+{% load static %}
 {% block content %}
 <style>
     td, table, th {
@@ -60,15 +40,23 @@
     <th>Item Price</th>
     <th>Description</th>
     </tr>
-    {% comment %} Add data below {% endcomment %}
-    {% for item in list_item %}
-        <tr>
-            <th>{{item.item_name}}</th>
-            <th>{{item.item_price}}</th>
-            <th>{{item.description}}</th>
-        </tr>
-    {% endfor %}
 </table>
 
+<script>
+  $(document).ready(() => {
+       const url = "{% url 'wishlist:show_json' %}"
+       $.get(url, (data) => {
+           data.forEach((item) => {
+               var item_name = item.fields.item_name;
+               var item_price = item.fields.item_price;
+               var item_description = item.fields.description;
+               var html = "<tr><th>" + item_name + "</th>" +
+                          "<th>" + item_price + "</th>" +
+                          "<th>" + item_description + "</th></tr>";
+       $("tbody").append(html);
+           })
+       });
+   });
+ </script>
 {% endblock content %}
 

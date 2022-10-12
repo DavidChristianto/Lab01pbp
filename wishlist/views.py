@@ -24,11 +24,10 @@ def show_wishlist(request):
     return render(request, "wishlist.html", context)
 
 def show_wishlist_ajax(request):
-    data_wishlist_item = ItemWishlist.objects.all()
     context = {
         'name': 'David Christianto',
     }
-    return render(request, "wishlist.html", context)
+    return render(request, "wishlist_ajax.html", context)
 
 def show_xml(request):
     data = ItemWishlist.objects.all()
