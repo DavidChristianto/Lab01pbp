@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
+{% block meta %}
 
+{{ block.super }}
+<script type="text/javaScript">
+  console.log("test");
+  $(document).ready(() => {
+       const url = "{% url 'wishlist:json' %}";
+       $.get(url, (data) => {
+           data.forEach((item) => {
+               var item_name = item.fields.item_name;
+               var item_price = item.fields.item_name;
+               var item_description = item.fields.descriptions;
+               var html = "<tr><td>" + item_name +
+                          "<tr><td>" + item_price + 
+                          "<tr><td>" + item_description + "</td>";
+       $("tbody").append(html);
+           })
+       });
+   });
+ </script>
+{% endblock meta %}
 {% block content %}
 <style>
     td, table, th {
@@ -49,23 +69,6 @@
         </tr>
     {% endfor %}
 </table>
-<h5>Last Login: {{ last_login }}</h5>
-
 
 {% endblock content %}
-<script>
-    $(document).ready(() => {
-        const url = "{% url 'wishlist:show_wishlist_ajax' %}";
-        $.get(url, (data) => {
-            data.forEach((item) => {
-                var item_name = item.fields.item_name;
-                var item_price = item.fields.item_name;
-                var item_description = item.fields.descriptions;
-                var html = "<tr><td>" + item_name +
-                           "<tr><td>" + item_price + 
-                           "<tr><td>" + item_description + "</td>";
-        $("tbody").append(html);
-            })
-        });
-    });
 

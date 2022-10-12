@@ -24,9 +24,9 @@ def show_wishlist(request):
     return render(request, "wishlist.html", context)
 
 def show_wishlist_ajax(request):
+    data_wishlist_item = ItemWishlist.objects.all()
     context = {
         'name': 'David Christianto',
-        'last_login': request.COOKIES['last_login'],
     }
     return render(request, "wishlist.html", context)
 
